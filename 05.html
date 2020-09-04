@@ -11,18 +11,21 @@
         <table border="1">
             <tr>
                 <th>NOMBRE</th>
-                <th>SUELDO</th>
+                <th>EDAD</th>
+                <th>OBSERVACION</th>
             </tr>
             <!-- Iterar array de objetos con v-for -->
-            <tr v-for="emp of empleados"> 
-                <td>{{ emp.nombre }}</td>
-                <td>{{ emp.sueldo }}</td>
+            <tr v-for="per of personas"> 
+                <td>{{ per.nombre }}</td>
+                <td>{{ per.edad }}</td>
+                <td v-if="per.edad >= 18">Mayor de edad</td>
+                <td v-else>Menor de edad</td>
             </tr>
         </table>
     </div>
 
     <!-- Libreria para desarrollo -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="04.js"></script>
+    <script src="05.js"></script>
 </body>
 </html>

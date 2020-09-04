@@ -1,13 +1,13 @@
 const app = new Vue({
     el: '#app',
     data: {
-        titulo: 'Listado de Empleados',
+        titulo: 'Listado de Personas',
         // Declarar un array de objetos
-        empleados: [
-            { nombre: 'Mateo', sueldo: 4800 },
-            { nombre: 'Marcos', sueldo: 3525 },
-            { nombre: 'Lucas', sueldo: 8700 },
-            { nombre: 'Juan', sueldo: 11000 }
+        personas: [
+            { nombre: 'Mateo', edad: 48 },
+            { nombre: 'Marcos', edad: 35 },
+            { nombre: 'Lucas', edad: 29 },
+            { nombre: 'Juan', edad: 17 }
         ]
     }
 })
