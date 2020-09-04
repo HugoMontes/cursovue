@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <!-- Visualizar y ocultar con v-if -->
+        <div v-if="ver">Hola Mundo</div>
+        <!-- Directiva v-if v-else -->
+        <div v-if="edad >= 18">Mayor de edad</div>
+        <div v-else>Menor de edad</div>
+        <!-- Directiva v-else-if es nuevo en 2.1+ -->
+        <div v-if="palabra === 'mesa'">Table</div>
+        <div v-else-if="palabra === 'manzana'">Apple</div>
+        <div v-else-if="palabra === 'rojo'">Red</div>
+        <div v-else>No se reconoce la palabra</div>
+    </div>
+    <!-- Libreria para desarrollo -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="02.js"></script>
+</body>
+</html>
