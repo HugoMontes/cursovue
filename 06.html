@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <!-- Adicionar un input usando v-model -->
+        <!-- v-model lo asocia directamente con una variable en vue -->
+        <input type="text" v-model="nuevoNombre">
+
+        <table border="1">
+            <tr>
+                <th>NOMBRE</th>
+                <th>EDAD</th>
+                <th>OBSERVACION</th>
+            </tr>
+            <!-- Iterar array de objetos con v-for -->
+            <tr v-for="per of personas"> 
+                <td>{{ per.nombre }}</td>
+                <td>{{ per.edad }}</td>
+                <td v-if="per.edad >= 18">Mayor de edad</td>
+                <td v-else>Menor de edad</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Libreria para desarrollo -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="06.js"></script>
+</body>
+</html>
