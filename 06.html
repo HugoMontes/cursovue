@@ -9,23 +9,17 @@
     <div id="app">
         <h1>{{ titulo }}</h1>
         <!-- Adicionar un input usando v-model -->
-        <!-- v-model lo asocia directamente con una variable en vue -->
-        <input type="text" v-model="nuevoNombre">
+        <!-- v-model se asocia directamente con una variable en vue -->
+        Ingrese su nombre:
+        <input type="text" v-model="nombre" @keyup.enter="saludarAction">
 
-        <table border="1">
-            <tr>
-                <th>NOMBRE</th>
-                <th>EDAD</th>
-                <th>OBSERVACION</th>
-            </tr>
-            <!-- Iterar array de objetos con v-for -->
-            <tr v-for="per of personas"> 
-                <td>{{ per.nombre }}</td>
-                <td>{{ per.edad }}</td>
-                <td v-if="per.edad >= 18">Mayor de edad</td>
-                <td v-else>Menor de edad</td>
-            </tr>
-        </table>
+        <!-- Capturar evento con v-on:clic -->
+        <!-- button v-on:click="saludarAction">Agregar</button -->
+        <!-- Forma abreviada con @click  -->
+        <button @click="saludarAction">Saludar</button>
+
+        <!-- Mostrar el saludo mediante las expresiones -->
+        <p>{{ mensaje }}</p>        
     </div>
 
     <!-- Libreria para desarrollo -->

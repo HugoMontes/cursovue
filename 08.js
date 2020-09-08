@@ -1,7 +1,7 @@
 const app = new Vue({
     el: '#app',
     data: {
-        titulo: 'METODOS Y EVENTO CLICK',
+        titulo: 'EVENTO KEYUP',
         nombre: '',
         mensaje: ''
     },

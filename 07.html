@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <!-- Ingresar datos -->
+        Ingrese valor A:
+        <input type="text" v-model="valora">
+        <br/>
+        Ingrese valor B:
+        <input type="text" v-model="valorb">
+        <br/>
+        <!-- Capturar el evento -->
+        <button @click="calcularAction">Calcular</button>
+        <!-- Mostrar los resultados -->
+        <p>{{ resultadoSuma }}</p>
+        <p>{{ resultadoResta }}</p>
+        <p>{{ resultadoProducto }}</p>
+        <p>{{ resultadoDivision }}</p>        
+    </div>
+
+    <!-- Libreria para desarrollo -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="07.js"></script>
+</body>
+</html>
