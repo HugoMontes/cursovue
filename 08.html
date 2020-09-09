@@ -3,40 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Importar estilo de bootstrap usando CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
-        <h1>{{ titulo }}</h1>
-        <!-- Campo para ingresar nuevo producto -->
-        <input type="text" v-model="nombreProducto" @keyup.enter="agregarAction">
-        <!-- Invocar a la funcion para guardar nuevo producto -->
-        <button @click="agregarAction">Agregar</button>
-        <!-- Mostrar listado de productos -->
-        <table border="1">
-            <tr>
-                <th>PRODUCTO</th>
-                <th>CANTIDAD</th>
-                <th>OBSERVACION</th>
-                <th></th>
-            </tr>
-            <tr v-for="prod of productos"> 
-                <td>{{ prod.nombre }}</td>
-                <!-- Permitir editar la cantidad indicando que es tipo numerico -->
-                <td><input type="number" v-model.number="prod.cantidad"></td>
-                <!-- Verificar si tiene o no stock -->
-                <td v-if="prod.cantidad > 0 ">CON STOCK</td>
-                <td v-else>SIN STOCK</td>
-                <td>
-                    <!-- Boton incrementar la cantidad en mas uno -->
-                    <!-- Se permite contener codigo JS sencillo -->
-                    <button @click="prod.cantidad++">+</button>
-                </td>
-            </tr>
-        </table>
-        <!-- Invocar a la funcion computada -->
-        <!-- En este caso la logica es mucho mas compleja por lo tanto usar un computed -->
-        <h4>TOTAL: {{ sumaCantidades }}</h4>
+    <div id="app" class="container-md">
+        <!-- Aplicando una clase de bootstrap -->
+        <div class="bg-danger">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, pariatur aliquam. Eius fugiat sint neque natus ab, esse exercitationem, illum eligendi error tempore facere vero sequi velit ipsa, atque quia?
+        </div>
+        <br>
+        
+        <!-- Aplicando una clase p-3 (padding 3) de bootstrap con vue -->
+        <!-- Para indicar una clase debe ir entre apostrofes o comillas simples -->
+        <div class="bg-danger" v-bind:class="'p-3'">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, pariatur aliquam. Eius fugiat sint neque natus ab, esse exercitationem, illum eligendi error tempore facere vero sequi velit ipsa, atque quia?
+        </div>
+        <br>
+        
+        <!-- Agregar mas de una clase a travez de vue -->
+        <!-- se debe usar un array -->
+        <div class="bg-danger" v-bind:class="['p-3', 'text-white']">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, pariatur aliquam. Eius fugiat sint neque natus ab, esse exercitationem, illum eligendi error tempore facere vero sequi velit ipsa, atque quia?
+        </div>
+        <br>
+        
+        <!-- Adicionar clases de forma dinamica -->
+        <!-- Obtener el nombre de la clase de una propiedad de vue -->
+        <div v-bind:class="['p-3', 'text-white', fondo]">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, pariatur aliquam. Eius fugiat sint neque natus ab, esse exercitationem, illum eligendi error tempore facere vero sequi velit ipsa, atque quia?
+        </div>
+        <br>
+
+        <!-- Cambiar el nombre de la clase mediante un input -->
+        <input type="text" class="form-control md" v-model="fondo">
+        <br>   
+        <!-- Probar ingresado en el campo de texto: bg-danger, bg-primary, bg-dark -->     
+
+        <!-- Aplicar una clase mediante un valor booleano -->
+        <!-- Aplicar bg-info si la variable 'color' es true -->
+        <!-- Aplicar bg-success solo si la variable 'color' es false -->
+        <div class="p-3 text-white" v-bind:class="{'bg-info' : color, 'bg-success' : !color}">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, pariatur aliquam. Eius fugiat sint neque natus ab, esse exercitationem, illum eligendi error tempore facere vero sequi velit ipsa, atque quia?
+        </div>
+        <br>
+        <!-- Probar cambiando el valor mediante consola F12 -->
+        
+        <!-- Cambiar el color mediante el boton -->
+        <button class="btn btn-primary" @click="color = !color">Cambiar</button>
     </div>
     <!-- Libreria para desarrollo -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <!-- Campo para ingresar nuevo producto -->
+        <input type="text" v-model="nombreProducto" @keyup.enter="agregarAction">
+        <!-- Invocar a la funcion para guardar nuevo producto -->
+        <button @click="agregarAction">Agregar</button>
+        <!-- Mostrar listado de productos -->
+        <table border="1">
+            <tr>
+                <th>PRODUCTO</th>
+                <th>CANTIDAD</th>
+                <th>OBSERVACION</th>
+                <th></th>
+            </tr>
+            <tr v-for="prod of productos"> 
+                <td>{{ prod.nombre }}</td>
+                <!-- Permitir editar la cantidad indicando que es tipo numerico -->
+                <td><input type="number" v-model.number="prod.cantidad"></td>
+                <!-- Verificar si tiene o no stock -->
+                <td v-if="prod.cantidad > 0 ">CON STOCK</td>
+                <td v-else>SIN STOCK</td>
+                <td>
+                    <!-- Boton incrementar la cantidad en mas uno -->
+                    <!-- Se permite contener codigo JS sencillo -->
+                    <button @click="prod.cantidad++">+</button>
+                </td>
+            </tr>
+        </table>
+        <!-- Invocar a la funcion computada -->
+        <!-- En este caso la logica es mucho mas compleja por lo tanto usar un computed -->
+        <h4>TOTAL: {{ sumaCantidades }}</h4>
+    </div>
+    <!-- Libreria para desarrollo -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="08.js"></script>
+</body>
+</html>
