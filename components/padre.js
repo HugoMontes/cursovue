@@ -6,9 +6,12 @@ Vue.component('padre', {
     // un contendor como por ejemplo un div
 
     // :numero hace uso del view binding para enviar data al hijo
+
+    // Agregar un boton que incremente en mas uno
     template:
     `<div style="padding:5px; background: red;">
         <h2>Componente Padre: {{ numeroPadre }}</h2>
+        <button @click="numeroPadre++">+</button>
         <hijo :numero="numeroPadre"></hijo>
     </div>`,
     // Indicar la data en contenedor padre
