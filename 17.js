@@ -8,17 +8,17 @@ const store = new Vuex.Store({
     state: {
         numero: 10
     },
-    // // Creamos un metodo para modificar las variables
-    // mutations: {
-    //     // Una opcion es llamar a state usando this
-    //     subir: function(){
-    //         this.state.numero++;
-    //     },
-    //     // Una segunda opcion es llamar a state pasando como argumento
-    //     bajar: function(state){
-    //         state.numero--;
-    //     },
-    // }
+    // Creamos metodos para modificar las variables
+    mutations: {
+        // Una opcion es llamar a state usando this
+        subir: function(){
+            this.state.numero++;
+        },
+        // Una segunda opcion es llamar a state pasando como argumento
+        bajar: function(state){
+            state.numero--;
+        },
+    }
 });
 
 // Instanciar un objeto de Vue
