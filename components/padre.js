@@ -8,16 +8,23 @@ Vue.component('padre', {
     // :numero hace uso del view binding para enviar data al hijo
 
     // Agregar un boton que incremente en mas uno
+
+    // Mostrar el atributo nombrePadre
+    // Recibir el dato mediante el evento recibido del componente hijo
     template:
     `<div style="padding:5px; background: red;">
         <h2>Componente Padre: {{ numeroPadre }}</h2>
         <button @click="numeroPadre++">+</button>
-        <hijo :numero="numeroPadre"></hijo>
+        {{nombrePadre}}
+        <hijo :numero="numeroPadre" @nombreHijo="nombrePadre = $event"></hijo>
     </div>`,
     // Indicar la data en contenedor padre
     data: function() {
         return {
-            numeroPadre: 7
+            numeroPadre: 7,
+            // Agregar la propiedad que va recibir
+            // el dato que se envia de hijo
+            nombrePadre: ''
         }
     }
 })
