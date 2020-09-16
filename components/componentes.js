@@ -9,11 +9,10 @@ Vue.component('padre', {
     </div>`,
     // Crear una propiedad calculada para retornar
     // unicamente el valor de numero
+
+    // Obtener el valor de state mediante mapState
     computed: {
-        numero: function() {
-            // Retorna unicamente el valor requerido
-            return store.state.numero;
-        }
+        ...Vuex.mapState(['numero'])
     }
 })
 
