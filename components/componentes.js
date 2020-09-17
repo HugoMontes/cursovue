@@ -23,14 +23,22 @@ Vue.component('padre', {
 // cual ejecuta una mutacion
 Vue.component('hijo', {
     // Invocar directamente numero
+
+    // Gracias a mapMutations podemos invocar directamente
+    // las mutaciones de forma mucho mas simplificada
     template: 
     `<div>
-        <button @click="$store.commit('bajar')">-</button>
-        <button @click="$store.commit('subir')">+</button>
+        <button @click="bajar">-</button>
+        <button @click="subir">+</button>
         <h2>numero {{ numero }}</h2>
     </div>`,
     // Obtener el valor de state mediante mapState
     computed: {
         ...Vuex.mapState(['numero'])
+    },
+    // Mapear la mutacion subir y bajar en methods
+    methods: {
+        ...Vuex.mapMutations(['subir', 'bajar'])
     }
+
 })
