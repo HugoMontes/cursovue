@@ -22,10 +22,15 @@ Vue.component('padre', {
 // Invocamos a store y este a su ves llama a commit el 
 // cual ejecuta una mutacion
 Vue.component('hijo', {
+    // Invocar directamente numero
     template: 
     `<div>
         <button @click="$store.commit('bajar')">-</button>
         <button @click="$store.commit('subir')">+</button>
-        <h2>numero {{ $store.state.numero }}</h2>
-    </div>`
+        <h2>numero {{ numero }}</h2>
+    </div>`,
+    // Obtener el valor de state mediante mapState
+    computed: {
+        ...Vuex.mapState(['numero'])
+    }
 })
