@@ -26,10 +26,13 @@ Vue.component('hijo', {
 
     // Gracias a mapMutations podemos invocar directamente
     // las mutaciones de forma mucho mas simplificada
+
+    // Invocar a la mutacion pasando un parametro
     template: 
     `<div>
         <button @click="bajar">-</button>
         <button @click="subir">+</button>
+        <button @click="sumar(2)">Incremento</button>
         <h2>numero {{ numero }}</h2>
     </div>`,
     // Obtener el valor de state mediante mapState
@@ -37,8 +40,9 @@ Vue.component('hijo', {
         ...Vuex.mapState(['numero'])
     },
     // Mapear la mutacion subir y bajar en methods
-    methods: {
-        ...Vuex.mapMutations(['subir', 'bajar'])
-    }
 
+    // Mapear la mutacion sumar
+    methods: {
+        ...Vuex.mapMutations(['subir', 'bajar', 'sumar'])
+    }
 })

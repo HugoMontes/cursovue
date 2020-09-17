@@ -18,6 +18,10 @@ const store = new Vuex.Store({
         bajar: function(state){
             state.numero--;
         },
+        // Adicionar una mutacion para incrementar en n el valor de numero
+        sumar(state, incremento){
+            state.numero += incremento;
+        }
     }
 });
 
